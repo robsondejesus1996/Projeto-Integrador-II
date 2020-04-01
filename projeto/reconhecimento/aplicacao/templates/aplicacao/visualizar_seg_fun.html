@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualização de dados</title>
+</head>
+<body>
+    <a href="{% url 'url_lisragem_seguranca'%}">Voltar</a>
+    <h1>Conferir os dados!</h1>
+    <form method="get">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+    </form>
+
+<iframe width="500px" height="500px"></iframe><button type="submit" onclick="alert('Aqui comeca o reconhecimento')">Verificar Funcionario</button>
+
+</body>
+</html>
