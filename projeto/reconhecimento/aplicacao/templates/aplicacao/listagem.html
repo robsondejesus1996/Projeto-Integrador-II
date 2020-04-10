@@ -9,10 +9,11 @@
 
 <body>
     <h1>Bem vindo - Listagem</h1>
+    <a href="{% url 'url_voltarg'%}">Voltar</a>
     <ul>
         {% for funcionario in funcionarios %}
         <li><a href="{% url 'url_update_fun' funcionario.id %}"> {{ funcionario.nome }} | {{ funcionario.data_nascimento }} | {{ funcionario.endereco }} | {{ funcionario.telefone }} | {{ funcionario.departamento }} | 
-             {{ funcionario.estado_civil }} | {{ funcionario.email }} | {{ funcionario.cpf }} | {{ funcionario.salario }} | {{ funcionario.image }}
+             {{ funcionario.estado_civil }} | {{ funcionario.email }} | {{ funcionario.cpf }} | {{ funcionario.salario }} | <img src="{{funcionario.image.url}}"width=100 px height="100px">
             </a></li>
         {% endfor %}
     </ul>
@@ -20,9 +21,6 @@
 
     <a href="{% url 'url_nova_dep'%}">Novo departamento</a><br>
     <a href="{% url 'url_nova_fun'%}">Novo Funcionario</a><br>
-    <a href="{% url 'url_reconhecer_fun'%}">Reconhecer funcionario da base</a>
-    
-
 </body>
 
 </html>

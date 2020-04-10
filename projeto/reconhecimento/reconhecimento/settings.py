@@ -13,10 +13,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-from django.conf import settings
-from django.conf.urls.static import static
-
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -24,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'f9hh5k^iftbzx(hq(qfil8m^l!bs0^mlrz7(hjr5h%vo8^4lyt'
+SECRET_KEY = '9ets9tzpukps=vt$c1)_vcmefu&^3tiowuhie186qol*g2qlrm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -124,7 +120,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
+#alteração para o arquivo de imagem
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
+#alteração para o login
+LOGIN_REDIRECT_URL = '/'

@@ -1,7 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b98ea58e-0591-4f5d-baf0-a2c9ab9d7d99" name="Default Changelist" comment="" />
+    <list default="true" id="74740dd8-f45e-489a-9807-9e9d3b068af8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../pin2/Scripts/activate" beforeDir="false" afterPath="$PROJECT_DIR$/../pin2/Scripts/activate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pin2/Scripts/activate.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../pin2/Scripts/activate.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pin2/Scripts/activate.fish" beforeDir="false" afterPath="$PROJECT_DIR$/../pin2/Scripts/activate.fish" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pin2/Scripts/activate.xsh" beforeDir="false" afterPath="$PROJECT_DIR$/../pin2/Scripts/activate.xsh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pin2/Scripts/django-admin.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pin2/Scripts/django-admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pin2/Scripts/easy_install-3.8.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../pin2/Scripts/easy_install-3.8.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pin2/Scripts/easy_install.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../pin2/Scripts/easy_install.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pin2/Scripts/easy_install3.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../pin2/Scripts/easy_install3.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pin2/Scripts/f2py.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pin2/Scripts/pip-3.8.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../pin2/Scripts/pip-3.8.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pin2/Scripts/pip.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../pin2/Scripts/pip.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pin2/Scripts/pip3.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../pin2/Scripts/pip3.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pin2/Scripts/sqlformat.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pin2/Scripts/wheel-3.8.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../pin2/Scripts/wheel-3.8.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pin2/Scripts/wheel.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../pin2/Scripts/wheel.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pin2/Scripts/wheel3.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../pin2/Scripts/wheel3.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Robson.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/reconhecimento.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/reconhecimento.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicacao/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/aplicacao/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicacao/migrations/0002_auto_20200324_1250.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicacao/migrations/0003_funcionario.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicacao/migrations/0004_auto_20200324_1348.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicacao/migrations/0005_auto_20200324_1351.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicacao/migrations/0006_post.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicacao/migrations/0007_remove_post_funcionario.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicacao/migrations/0008_delete_post.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicacao/migrations/0009_funcionario_image.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicacao/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/aplicacao/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicacao/templates/aplicacao/formFuncionario.html" beforeDir="false" afterPath="$PROJECT_DIR$/aplicacao/templates/aplicacao/formFuncionario.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicacao/templates/aplicacao/listagem.html" beforeDir="false" afterPath="$PROJECT_DIR$/aplicacao/templates/aplicacao/listagem.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicacao/templates/aplicacao/listagem_seguranca.html" beforeDir="false" afterPath="$PROJECT_DIR$/aplicacao/templates/aplicacao/listagem_seguranca.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicacao/templates/aplicacao/reconhecedor.html" beforeDir="false" afterPath="$PROJECT_DIR$/aplicacao/templates/aplicacao/reconhecedor.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicacao/templates/aplicacao/visualizar_seg_fun.html" beforeDir="false" afterPath="$PROJECT_DIR$/aplicacao/templates/aplicacao/visualizar_seg_fun.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicacao/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/aplicacao/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/accounts/1866521169/1866521169.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/accounts/3585165981/3585165981.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reconhecimento/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/reconhecimento/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reconhecimento/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/reconhecimento/urls.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,11 +51,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Python Script" />
         <option value="HTML File" />
       </list>
     </option>
   </component>
-  <component name="ProjectId" id="1ZtanqAErokUA2Z1gSkpvSCsvK7" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1aB2YuzaxVcz3yyykRDQ8vkwMvb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -24,29 +70,73 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.maddyhome.idea.vim.ui.VimEmulationConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration name="treinamento" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="reconhecimento" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/treinamento.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.treinamento" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b98ea58e-0591-4f5d-baf0-a2c9ab9d7d99" name="Default Changelist" comment="" />
-      <created>1585661013398</created>
+      <changelist id="74740dd8-f45e-489a-9807-9e9d3b068af8" name="Default Changelist" comment="" />
+      <created>1586194723369</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1585661013398</updated>
+      <updated>1586194723369</updated>
     </task>
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1585677754563">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1586271753433">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1585677754563" />
-    <state x="184" y="6" key="SettingsEditor" timestamp="1585670840324">
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1586271753433" />
+    <state width="1345" height="98" key="GridCell.Tab.0.bottom" timestamp="1586528960771">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="6" key="SettingsEditor/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1585670840324" />
+    <state width="1345" height="98" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1586528960771" />
+    <state width="1345" height="98" key="GridCell.Tab.0.center" timestamp="1586528960771">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="98" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1586528960771" />
+    <state width="1345" height="98" key="GridCell.Tab.0.left" timestamp="1586528960771">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="98" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1586528960771" />
+    <state width="1345" height="98" key="GridCell.Tab.0.right" timestamp="1586528960771">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="98" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1586528960771" />
+    <state x="184" y="6" key="SettingsEditor" timestamp="1586195035681">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="6" key="SettingsEditor/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1586195035681" />
   </component>
 </project>

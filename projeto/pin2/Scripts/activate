@@ -46,7 +46,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV='C:\Users\Robson\Documents\MEGA\Engenharia de Softwares\5° Semestre\Projeto Integrador  II\Aplicação definitiva\projeto\pin2'
+VIRTUAL_ENV='C:\Users\Robson\Documents\MEGA\Engenharia de Softwares\5° Semestre\Projeto Integrador  II\Aplicacao do mal\projeto\pin2'
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

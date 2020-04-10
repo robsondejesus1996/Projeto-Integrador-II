@@ -1,25 +1,39 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from .models import Funcionario
 from .models import Departamento
 from .form import DepartamentoForm
 from .form import FuncionarioForm
 from .form import Visualizador
-import datetime
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login
+from django.http import HttpResponse
+import cv2
 
 
-# Create your views here.
+def index(request):
+    if request.user.username == 'Rh':
+        return render(request, 'aplicacao/index.html')
+    else:
+        return render(request, 'aplicacao/indexseg.html')
 
-def login(request):
-    return HttpResponse('Aqui sera a view de login futuramente!!!')
 
-def home(request):
-    data = {}
-    data['transacoes'] = ['t1','t2','t3']
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
 
-    data ['now'] = datetime.datetime.now()
-    #html = "<html><body>It is now %s.</body></html>" % now
-    return render(request, 'contas/home.html', data)    
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('index')
+    else:
+        form = UserCreationForm()
+
+    context = {'form' : form}
+    return render(request, 'registration/register.html', context)
+
 
 def listagem(request):
     data = {}
@@ -52,14 +66,6 @@ def novo_funcionario(request):
     return render(request, 'aplicacao/formFuncionario.html', data)
 
 
-
-
-
-
-
-    
-#update_dp, update_fun, delete_dp, delete_fun
-
 def update_dp(request, pk):
     data = {}
     departamento = Departamento.objects.get(pk=pk)
@@ -82,7 +88,6 @@ def update_fun(request, pk):
     data['funcionario'] = funcionario
     return render(request, 'aplicacao/formFuncionario.html', data)
 
-#teste da visualização do seguranca para ver os funcionarios cadastrados
 def visualizador_seg_fun(request, pk):
     data = {}
     funcionario = Funcionario.objects.get(pk=pk)
@@ -102,6 +107,105 @@ def delete(request, pk):
 
 def reconhecer(request):
     return render(request, 'aplicacao/reconhecedor.html')
+
+def voltar (request):
+    return render (request, 'aplicacao/indexseg.html')
+
+def voltarg(request):
+    return  render(request, 'aplicacao/index.html')
+
+def detectar(request):
+    classificador = cv2.CascadeClassifier("original.xml")
+    camera = cv2.VideoCapture(1)
+
+    while (True):
+        conectado, imagem = camera.read()
+        imagemCinza = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
+
+        # testes a partir daqui
+        facesDetectadas = classificador.detectMultiScale(imagemCinza, scaleFactor=1.5, minSize=(100, 100))
+        for (x, y, l, a) in facesDetectadas:
+            cv2.rectangle(imagem, (x, y), (x + l, y + a), (0, 0, 255), 2)
+
+        cv2.imshow('frame', imagem)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    camera.release()
+    cv2.destroyAllWindows()
+
+    return HttpResponse('A face foi reconhecida com sucesso!!!')
+
+
+def capturar(request):
+    classificador = cv2.CascadeClassifier("original.xml")
+    camera = cv2.VideoCapture(1)
+    amostra = 1
+    numeroAmostrars = 25
+    id = input('Digite o identificador da pessoa: ')
+    # nome = input('Digite o nome da pessoa: ')
+    largura, altura = 220, 220
+    print("Capturando as faces...")
+
+    while (True):
+        conectado, imagem = camera.read()
+        imagemCinza = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
+
+        facesDetectadas = classificador.detectMultiScale(imagemCinza, scaleFactor=1.5, minSize=(150, 150))
+        for (x, y, l, a) in facesDetectadas:
+            cv2.rectangle(imagem, (x, y), (x + l, y + a), (0, 0, 255), 2)
+
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            imagemFace = cv2.resize(imagemCinza[y:y + a, x:x + l], (largura, altura))
+            cv2.imwrite("fotos/pessoa." + str(id) + "." + str(amostra) + ".jpg", imagemFace)
+            print("[Foto " + str(amostra) + " capturada com sucesso]")
+            amostra += 1
+
+        cv2.imshow('frame', imagem)
+        if cv2.waitKey(1) & 0xFF == ord('s'):
+            break
+        elif (amostra >= numeroAmostrars + 1):
+            break
+
+    print("faces capturadas com sucesso")
+    camera.release()
+    cv2.destroyAllWindows()
+
+    return HttpResponse('A face foi capturada com sucesso!!!')
+
+
+def treinar(request):
+    return HttpResponse('não esta funcionando está merda')
+
+
+def reconhecer(request):
+
+    detectorFace = cv2.CascadeClassifier("original.xml")
+    reconhecedor = cv2.face.EigenFaceRecognizer_create()
+    reconhecedor.read("classificadorEigen.yml")
+    largura, altura = 220, 220
+    font = cv2.FONT_HERSHEY_COMPLEX_SMALL
+    camera = cv2.VideoCapture(1)
+
+    while (True):
+        conectado, imagem = camera.read()
+        imagemCinza = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
+        facesDetectadas = detectorFace.detectMultiScale(imagemCinza, scaleFactor=1.5, minSize=(30, 30))
+        for (x, y, l, a) in facesDetectadas:
+            imagemFace = cv2.resize(imagemCinza[y:y + a, x:x + l], (largura, altura))
+            cv2.rectangle(imagem, (x, y), (x + l, y + a), (0, 0, 255), 2)
+            id, confianca = reconhecedor.predict(imagemFace)
+            cv2.putText(imagem, str(id), (x, y + (a + 30)), font, 2, (0, 0, 255))
+            # cv2.putText(imagem, str(confianca), (x, y + (a + 50)), font, 1, (0, 0, 255))
+
+        cv2.imshow('frame', imagem)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    camera.release()
+    cv2.destroyAllWindows()
+
+    return HttpResponse('A face foi reconhecida com sucesso!!!')
 
 
 

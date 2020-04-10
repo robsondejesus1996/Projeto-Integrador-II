@@ -13,8 +13,10 @@
 
         {{ form.as_p }}
     </form>
+    <p>O reconhecimento é verificado pelo CPF do funcionario</p>
+<img src="{{funcionario.image.url}}"width=100 px height="100px">
+<a href="{% url 'url_reconhecer'%}">Reconhecer funcionario!</a>
 
-<iframe width="500px" height="500px"></iframe><button type="submit" onclick="alert('Aqui comeca o reconhecimento')">Verificar Funcionario</button>
 
 </body>
 </html>

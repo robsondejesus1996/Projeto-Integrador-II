@@ -7,10 +7,12 @@
 </head>
 <body>
 
-    <form method="get">
+    <form method="post">
         {% csrf_token %}
 
         {{ form.as_p }}
+         <a href="{% url 'url_detectar'%}">Detectar</a><br>
+        <a href="{% url 'url_capturar'%}">Capturar</a> <br>
 
         <button type="submit">Salvar</button>
         

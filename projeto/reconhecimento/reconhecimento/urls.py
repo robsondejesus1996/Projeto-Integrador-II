@@ -14,37 +14,31 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from aplicacao.views import login,home, listagem, novo_departamento, novo_funcionario, update_dp, update_fun, delete, \
-reconhecer, listagem_segurancao,visualizador_seg_fun
+from aplicacao.views import login, listagem, novo_departamento, novo_funcionario, update_dp, update_fun, delete, \
+reconhecer, listagem_segurancao,visualizador_seg_fun, voltar, voltarg, capturar, treinar, reconhecer, detectar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', listagem, name ='url_listagem'),
+    path('listagem/', listagem, name ='url_listagem'),
     path('novadp/', novo_departamento, name = 'url_nova_dep'),
     path('novafun/', novo_funcionario, name = 'url_nova_fun'),
-
-
-
-    #teste para nova listamgem de seguranca
     path('listagemseg', listagem_segurancao, name = 'url_lisragem_seguranca'),
-
-    #teste para reconhecer funcionario da base
     path('reconhecer/', reconhecer, name = 'url_reconhecer_fun'),
-    
     path('updatedp/<int:pk>/', update_dp, name = 'url_update_dp'),
     path('updatefun/<int:pk>/', update_fun, name = 'url_update_fun'),
-
-    # teste visualização seguranca ver os dados de funcionario
     path('visualizar_seg_fun/<int:pk>/', visualizador_seg_fun, name = 'url_visualizar'),
-
     path('delete/<int:pk>/', delete, name = 'url_delete'),
-    path('', home)
-    
-    
-
+    path('', include('aplicacao.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('voltar/', voltar, name = 'url_voltar'),
+    path('voltarg/', voltarg, name = 'url_voltarg'),
+    path('detectar/',detectar, name = 'url_detectar'),
+    path('capturar/', capturar, name = 'url_capturar'),
+    path('treinar/', treinar, name = 'url_treinar'),
+    path('reconhecer/', reconhecer, name = 'url_reconhecer'),
 ]
 if settings.DEBUG:
     urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
