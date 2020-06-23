@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+
 from aplicacao.views import login, listagem, novo_departamento, novo_funcionario, update_dp, update_fun, delete, \
 reconhecer, listagem_segurancao,visualizador_seg_fun, voltar, voltarg, capturar, treinar, reconhecer, detectar
 

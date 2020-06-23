@@ -1,6 +1,7 @@
 from django.forms import ModelForm
 from .models import Departamento
 from .models import Funcionario
+from django import forms
 
 
 
@@ -20,7 +21,6 @@ class Visualizador(ModelForm):
                 model = Funcionario
                 fields = ['nome', 'data_nascimento', 'endereco', 'telefone', 'departamento', 'estado_civil', 'email',
                           'cpf', 'salario']
-
 
 
 

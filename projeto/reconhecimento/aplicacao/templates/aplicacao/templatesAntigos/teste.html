@@ -1,0 +1,37 @@
+
+<html>
+<head>
+    <title>Video Streaming </title>
+</head>
+<body>
+  <div class="container-fluid" class="main">
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <hr class="mt-0 mb-4">
+          {% block content %}
+              <video id="vidDisplay" autoplay="true">
+            No video
+        </video>
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+<script >
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia
+    navigator.msGetUserMedia || navigator.oGetUserMedia;
+
+    if(navigator.getUserMedia){
+        navigator.getUserMedia({video: true}, handleVideo, videoError);
+     }
+
+     function handleVideo(stream){
+        document.querySelector('#vidDisplay').src = window.URL.createObjectURL(stream);
+        }
+
+    function videoError(e){
+        alert("Nao deu");
+    }
+</script>
+
+</body>
+</html>

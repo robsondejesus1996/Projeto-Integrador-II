@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Index</title>
-</head>
-<body>
+{% extends 'aplicacao/base_seg.html' %}
 
-<h1>Página do Seguranca - Listagem</h1>
+{% load crispy_forms_tags %}
+
+{% block content %}
     {% if user.is_authenticated %}
     <h2>Bem-Vindo {{ user.username }}</h2>
     {% else %}
     <h2>Você não está logado!</h2>
     {% endif%}
-    <a href="{% url 'url_lisragem_seguranca'%}">Ir para pesquisa funcionario</a><br>
-    <a href="{% url 'login' %}">Sair</a>
-</body>
-</html>
+{% endblock %}
+

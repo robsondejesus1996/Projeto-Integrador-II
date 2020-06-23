@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem</title>
+</head>
+
+<body>
+    <h1>Bem vindo - Segurança</h1>
+    <a href="{% url 'url_voltar'%}">Voltar</a>
+
+    <form method="GET">
+        <input type="text" name="buscar" placeholder="pesquise pelo cpf...">
+        <input type="submit" value="Buscar">
+    </form>
+    <ul>
+        {% for funcionario in funcionarios %}
+        <li><a href="{% url 'url_visualizar' funcionario.id %}"> {{ funcionario.nome }} | {{ funcionario.data_nascimento }} | {{ funcionario.endereco }} | {{ funcionario.telefone }} | {{ funcionario.departamento }} |
+             {{ funcionario.estado_civil }} | {{ funcionario.email }} | {{ funcionario.cpf }} | {{ funcionario.salario }}
+            </a></li>
+        {% endfor %}
+    </ul>
+
+
+
+
+
+</body>
+
+</html>

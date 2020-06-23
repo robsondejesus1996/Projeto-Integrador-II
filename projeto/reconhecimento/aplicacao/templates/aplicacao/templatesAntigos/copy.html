@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script   >
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<!------ Include the above in your HEAD tag ---------->
+<div id="throbber" style="display:none; min-height:120px;"></div>
+<div id="noty-holder"></div>
+<div id="wrapper">
+</div>
+</head>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-side" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <!-- Top Menu Items -->
+        <ul class="nav navbar-right top-nav">
+            <li><a href="#" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Stats"><i class="fa fa-bar-chart-o"></i>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="{% url 'login' %}" class="glyphicon glyphicon-log-out data-toggle="dropdown"> Logout<b class="fa fa-angle-down"></b></a>
+            </li>
+        </ul>
+
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                 <li>
+                    <a href="{% url 'url_voltarg'%}"  data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-search"></i> Inicio <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                </li>
+                <li>
+                    <a href="{% url 'url_listagem'%}" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-search"></i> Listagem <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                </li>
+                <li>
+                    <a href="{% url 'url_nova_fun'%}" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i>  Cadastrar Funcionário <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                </li>
+                <li>
+                    <a href="{% url 'url_nova_dep'%}"><i class="fa fa-fw fa-user-plus"></i> Cadastrar Departamento </a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+
+    <!-- /#page-wrapper -->
+</div><!-- /#wrapper -->
+
+
+
+<head/>
+
+<body>
+
+ <form method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <!--<a href="{% url 'url_detectar'%}">Detectar</a><br>
+        <a href="{% url 'url_capturar'%}">Capturar</a> <br> -->
+
+        <button type="submit">Salvar</button>
+
+        {% if funcionario %}
+        <a href="{%url 'url_delete' funcionario.id%}">Deletar</a>
+        {% endif%}
+
+    </form>
+
+</body>
+</html>

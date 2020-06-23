@@ -1,5 +1,4 @@
 from .models import Funcionario
-from .models import Departamento
 from .form import DepartamentoForm
 from .form import FuncionarioForm
 from .form import Visualizador
@@ -8,11 +7,26 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 import cv2
+from django.views.generic import CreateView
+from .models import Departamento
+from django.http import HttpResponseRedirect
+from django.core.files.storage import FileSystemStorage
+from flask import Flask, render_template, render_template_string, Response
 
+
+class DeptoCreateView(CreateView):
+    model = Departamento
+    fields = ('nome', 'localidade')
+    template_name = 'aplicacao/formDepartamento.html'
+
+class FuncionarioCreateView(CreateView):
+    model = Funcionario
+    fields = ('nome', 'data_nascimento', 'endereco', 'telefone', 'departamento', 'estado_civil', 'email', 'cpf', 'salario','image')
+    template_name = 'aplicacao/formFuncionario.html'
 
 def index(request):
     if request.user.username == 'Rh':
-        return render(request, 'aplicacao/index.html')
+        return render(request, 'aplicacao/indexreal.html')
     else:
         return render(request, 'aplicacao/indexseg.html')
 
@@ -58,10 +72,16 @@ def novo_departamento(request):
 
 def novo_funcionario(request):
     data = {}
-    form = FuncionarioForm(request.POST or None)
+    form = FuncionarioForm()
     if form.is_valid():
         form.save()
         return redirect('url_listagem')
+
+    if request.method == 'POST':
+        form = FuncionarioForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('url_listagem')
     data['form'] = form
     return render(request, 'aplicacao/formFuncionario.html', data)
 
@@ -84,8 +104,16 @@ def update_fun(request, pk):
     if form.is_valid():
         form.save()
         return redirect('url_listagem')
+
+    if request.method == 'POST':
+        form = FuncionarioForm(request.POST, request.FILES, instance=funcionario)
+        if form.is_valid():
+            form.save()
+            return redirect('url_listagem')
+
     data['form'] = form
     data['funcionario'] = funcionario
+
     return render(request, 'aplicacao/formFuncionario.html', data)
 
 def visualizador_seg_fun(request, pk):
@@ -100,9 +128,9 @@ def visualizador_seg_fun(request, pk):
     return render(request, 'aplicacao/visualizar_seg_fun.html', data)
 
 
-def delete(request, pk):   
+def delete(request, pk):
     funcionario = Funcionario.objects.get(pk=pk)
-    funcionario.delete()     
+    funcionario.delete()
     return redirect('url_listagem')
 
 def reconhecer(request):
@@ -112,11 +140,11 @@ def voltar (request):
     return render (request, 'aplicacao/indexseg.html')
 
 def voltarg(request):
-    return  render(request, 'aplicacao/index.html')
+    return  render(request, 'aplicacao/indexreal.html')
 
 def detectar(request):
     classificador = cv2.CascadeClassifier("original.xml")
-    camera = cv2.VideoCapture(1)
+    camera = cv2.VideoCapture(0)
 
     while (True):
         conectado, imagem = camera.read()
@@ -139,7 +167,7 @@ def detectar(request):
 
 def capturar(request):
     classificador = cv2.CascadeClassifier("original.xml")
-    camera = cv2.VideoCapture(1)
+    camera = cv2.VideoCapture(0)
     amostra = 1
     numeroAmostrars = 25
     id = input('Digite o identificador da pessoa: ')
@@ -185,10 +213,10 @@ def reconhecer(request):
     reconhecedor.read("classificadorEigen.yml")
     largura, altura = 220, 220
     font = cv2.FONT_HERSHEY_COMPLEX_SMALL
-    camera = cv2.VideoCapture(1)
+    camera = cv2.VideoCapture(0)
 
     while (True):
-        conectado, imagem = camera.read()
+        conectado, imagem = camera.read(    )
         imagemCinza = cv2.cvtColor(imagem, cv2.COLOR_BGR2GRAY)
         facesDetectadas = detectorFace.detectMultiScale(imagemCinza, scaleFactor=1.5, minSize=(30, 30))
         for (x, y, l, a) in facesDetectadas:
@@ -208,5 +236,16 @@ def reconhecer(request):
     return HttpResponse('A face foi reconhecida com sucesso!!!')
 
 
+def funcionario_image_view(request):
+    if request.method == 'POST':
+        form = FuncionarioForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('success')
+    else:
+        form = FuncionarioForm()
+    return render(request, 'formFuncionario.html', {'form': form})
 
 
+def success(request):
+    return HttpResponse('Cadastro concluído!')

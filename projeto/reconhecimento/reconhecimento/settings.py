@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'aplicacao',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -122,7 +125,8 @@ STATIC_URL = '/static/'
 
 
 #alteração para o arquivo de imagem
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media/image')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 #alteração para o login
 LOGIN_REDIRECT_URL = '/'

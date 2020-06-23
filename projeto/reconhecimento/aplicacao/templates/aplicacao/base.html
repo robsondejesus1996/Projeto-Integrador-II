@@ -1,0 +1,64 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <style type="text/css">
+		.sidenav {
+			height:100%;
+			width:160px;
+			position: fixed;
+			z-index:1;
+			top:0;
+			left:50;
+			background-color:#111;
+			overflow-x: :hidden;
+			padding-top:40px;
+		}
+
+		.sidenav a {
+			padding:6px 8px 6px 16px;
+			text-decoration: none;
+			font-size:15px;
+			color: #818181;
+			display:block;
+		}
+
+		.sidenav a:hover{
+			color:#f1f1f1;
+		}
+
+		.main{
+			margin-left:160px;
+			padding: 0px 10px;
+		}
+
+	</style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Divemask - Security</title>
+  </head>
+  <body>
+
+    <div class="sidenav">
+		<a href="/">Inicio</a>
+		<a href="{% url 'url_listagem'%}">Listagem</a>
+		<a href="{% url 'url_nova_fun'%}">Cadastrar Funcionário</a>
+        <a href="{% url 'url_nova_dep'%}">Cadastrar Departamento</a>
+        <a href="{% url 'login' %}"> Logout</a>
+	</div>
+
+     <div class="container-fluid" class="main">
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <hr class="mt-0 mb-4">
+          {% block content %}
+
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>

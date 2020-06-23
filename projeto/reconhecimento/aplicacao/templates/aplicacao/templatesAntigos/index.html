@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+
+<h1>Página dfsga Administrada - Listagem</h1>
+    {% if user.is_authenticated %}
+    <h2>Bem-Vindo {{ user.username }}</h2>
+    {% else %}
+    <h2>Você não está logado!</h2>
+    {% endif%}
+    <a href="{% url 'url_listagem'%}">Ir para a listagem</a><br>
+    <a href="{% url 'login' %}">Sair</a>
+</body>
+</html>

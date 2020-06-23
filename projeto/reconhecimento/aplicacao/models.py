@@ -24,9 +24,7 @@ class Funcionario(models.Model):
      email = models.CharField(max_length=200)
      cpf = models.CharField(max_length=200)
      salario = models.DecimalField(max_digits=8, decimal_places=4)
-     models.ImageField(upload_to='images/')
-     image = models.ImageField(upload_to='images/')
-     
+     image = models.ImageField(upload_to='image/', null=False)
 
      class Meta:
          verbose_name_plural = 'Funcionarios'#difinir o nome em plural da entidade funcionario
@@ -34,3 +32,6 @@ class Funcionario(models.Model):
     
      def __str__(self):
          return self.nome
+
+
+

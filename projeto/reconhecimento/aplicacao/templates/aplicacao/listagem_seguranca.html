@@ -1,32 +1,43 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends 'aplicacao/base_seg.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listagem</title>
-</head>
+{% load crispy_forms_tags %}
 
-<body>
-    <h1>Bem vindo - Segurança</h1>
-    <a href="{% url 'url_voltar'%}">Voltar</a>
+{% block content %}
+
+      <center>
+        <video id="vidDisplay" autoplay="true">
+            No video
+        </video>
 
     <form method="GET">
-        <input type="text" name="buscar" placeholder="pesquise pelo cpf...">
-        <input type="submit" value="Buscar">
+         {% csrf_token %}
+         {{ form|crispy}}
+        <input type="text" class="form-group col-md-2" name="buscar" placeholder="Insira o CPF  ">
+        <input type="submit" class="btn btn-success" value="Buscar">
     </form>
     <ul>
         {% for funcionario in funcionarios %}
-        <li><a href="{% url 'url_visualizar' funcionario.id %}"> {{ funcionario.nome }} | {{ funcionario.data_nascimento }} | {{ funcionario.endereco }} | {{ funcionario.telefone }} | {{ funcionario.departamento }} |
-             {{ funcionario.estado_civil }} | {{ funcionario.email }} | {{ funcionario.cpf }} | {{ funcionario.salario }}
-            </a></li>
+
+        <ul class="list-group">
+            <li class="list-group-item"><a href="{% url 'url_visualizar' funcionario.id %}"> {{ funcionario.nome }} </a> </li>
+        </ul>
         {% endfor %}
     </ul>
+<script >
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia
+    navigator.msGetUserMedia || navigator.oGetUserMedia;
 
+    if(navigator.getUserMedia){
+        navigator.getUserMedia({video: true}, handleVideo, videoError);
+     }
 
+     function handleVideo(stream){
+        document.querySelector('#vidDisplay').src = window.URL.createObjectURL(stream);
+        }
 
+    function videoError(e){
+        alert("Nao deu");
+    }
+</script>
 
-
-</body>
-
-</html>
+{% endblock %}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem</title>
+</head>
+
+<body>
+    <h1>Bem vindo - Listagem</h1>
+    <a href="{% url 'url_voltarg'%}">Voltar</a>
+    <ul>
+        {% for funcionario in funcionarios %}
+        <li><a href="{% url 'url_update_fun' funcionario.id %}"> {{ funcionario.nome }} | {{ funcionario.data_nascimento }} | {{ funcionario.endereco }} | {{ funcionario.telefone }} | {{ funcionario.departamento }} |
+             {{ funcionario.estado_civil }} | {{ funcionario.email }} | {{ funcionario.cpf }} | {{ funcionario.salario }} | <img src="{{funcionario.image.url}}"width=100 px height="100px">
+            </a></li>
+        {% endfor %}
+    </ul>
+
+
+    <a href="{% url 'url_nova_dep'%}">Novo departamento</a><br>
+    <a href="{% url 'url_nova_fun'%}">Novo Funcionario</a><br>
+</body>
+
+</html>

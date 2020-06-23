@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualização de dados</title>
+</head>
+<body>
+    <a href="{% url 'url_lisragem_seguranca'%}">Voltar</a>
+    <h1>Conferir os dados!</h1>
+    <form method="get">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+    </form>
+    <p>O reconhecimento é verificado pelo CPF do funcionario</p>
+<img src="{{funcionario.image.url}}"width=100 px height="100px">
+<a href="{% url 'url_reconhecer'%}">Reconhecer funcionario!</a>
+
+
+</body>
+</html>

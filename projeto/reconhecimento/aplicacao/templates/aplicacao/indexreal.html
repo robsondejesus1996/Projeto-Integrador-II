@@ -1,0 +1,12 @@
+{% extends 'aplicacao/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <h2>Bem-Vindo {{ user.username }}</h2>
+    {% else %}
+    <h2>Você não está logado!</h2>
+    {% endif%}
+{% endblock %}
+
